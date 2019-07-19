@@ -1,14 +1,12 @@
-# react-hls
+# react-hls-player
 
-`react-hls` is a simple hls/rtmp live stream player.
-It will use [hls.js](https://github.com/dailymotion/hls.js) to play your hls live stream if your browser support `html 5 video` and `MediaSource Extension`. Otherwise it will downgrade to `Flash` play your `rtmp` live stream.
+`react-hls-player` is a simple hls/rtmp live stream player.
+It uses [hls.js](https://github.com/video-dev/hls.js) to play your hls live stream if your browser supports `html 5 video` and `MediaSource Extension`.
 
 ## Todo
 - [x] Start the project
-- [x] Write base component structor
+- [x] Write base component structure
 - [x] Support Hls live stream playing ability
-- [ ] Support Rtmp/Flv live stream
-- [ ] downgrad solution
 - [ ] bugs & Optimization :)
 
 ## Tutorial
@@ -25,27 +23,27 @@ import ReactHLS from 'react-hls';
 
 - url `String` `required`
 
-    the hls url that you want to play
+    The hls url that you want to play
 
 - autoplay `Boolean`
 
-    autoplay when component is ready default to `false`
+    Autoplay when component is ready. Defaults to `false`
 
-- constrols `Boolean`
+- controls `Boolean`
 
-    whether or not showing the playback controls default to `false`
+    Whether or not to show the playback controls. Defaults to `false`
 
 - width `Number`
 
-    video width
+    Video width
 
 - height `Number`
 
-    video height
+    Video height
 
 - hlsConfig `Object`
 
-    `hls.js` config , you can see all config [here](https://github.com/dailymotion/hls.js/blob/master/doc/API.md#fine-tuning)
+    `hls.js` config , you can see all config [here](https://github.com/video-dev/hls.js/blob/master/docs/API.md#fine-tuning)
 
 - videoProps `Object`
 
