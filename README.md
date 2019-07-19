@@ -3,16 +3,10 @@
 `react-hls-player` is a simple hls/rtmp live stream player.
 It uses [hls.js](https://github.com/video-dev/hls.js) to play your hls live stream if your browser supports `html 5 video` and `MediaSource Extension`.
 
-## Todo
-- [x] Start the project
-- [x] Write base component structure
-- [x] Support Hls live stream playing ability
-- [ ] bugs & Optimization :)
-
 ## Tutorial
 
 ```javascript
-import ReactHLS from 'react-hls';
+import ReactHLS from 'react-hls-player';
 
 // In your render function
 <ReactHLS url={"your hls http url"} />
