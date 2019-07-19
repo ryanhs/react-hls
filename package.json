@@ -1,11 +1,11 @@
 {
   "name": "react-hls-player",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A simple and easy to use react component for playing an hls live stream",
   "main": "./dist/react-hls-player.js",
   "scripts": {
     "start": "parcel ./public/index.html --open --out-dir serve",
-    "build": "parcel build ./src/components/react-hls-player.js --out-file react-hls-player.js --experimental-scope-hoisting",
+    "build": "webpack",
     "release": "yarn build && yarn publish",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/devcshort/react-hls#README",
   "dependencies": {
+    "@babel/plugin-transform-react-jsx": "^7.3.0",
     "hls.js": "^0.12.4",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
@@ -36,7 +37,12 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-loader": "^8.0.6",
     "parcel-bundler": "^1.12.3",
-    "sass": "^1.22.7"
+    "sass": "^1.22.7",
+    "webpack": "^4.36.1",
+    "webpack-cli": "^3.3.6"
   }
 }
