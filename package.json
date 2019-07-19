@@ -1,12 +1,12 @@
 {
   "name": "react-hls-player",
   "version": "0.0.1",
-  "description": "A simple and easy to use react component for playing hls live stream",
-  "main": "./dist/assets/player.bundle.js",
+  "description": "A simple and easy to use react component for playing an hls live stream",
+  "main": "./dist/react-hls-player.js",
   "scripts": {
-    "start": "parcel ./public/index.html --open",
-    "build": "",
-    "release": "npm run build:production && npm publish",
+    "start": "parcel ./public/index.html --open --out-dir serve",
+    "build": "parcel build ./src/components/react-hls-player.js --out-file react-hls-player.js --experimental-scope-hoisting",
+    "release": "yarn build && yarn publish",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,18 +16,19 @@
   "keywords": [
     "hls",
     "rtmp",
-    "react"
+    "react",
+    "component"
   ],
-  "author": "mingxin.huang",
+  "author": "devcshort",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/devcshort/react-hls/issues"
   },
   "homepage": "https://github.com/devcshort/react-hls#README",
   "dependencies": {
-    "components": "^0.1.0",
     "hls.js": "^0.12.4",
-    "react": "^16.0.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "peerDependencies": {
@@ -35,11 +36,6 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.5",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "babel-preset-stage-3": "^6.24.1",
     "parcel-bundler": "^1.12.3",
     "sass": "^1.22.7"
   }
