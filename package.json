@@ -20,7 +20,7 @@
     "component"
   ],
   "author": "devcshort",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/devcshort/react-hls/issues"
   },
