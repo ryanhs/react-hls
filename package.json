@@ -26,7 +26,6 @@
   },
   "homepage": "https://github.com/devcshort/react-hls#README",
   "dependencies": {
-    "@babel/plugin-transform-react-jsx": "^7.3.0",
     "hls.js": "^0.12.4",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
@@ -38,6 +37,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
+    "@babel/plugin-transform-react-jsx": "^7.3.0",
     "@babel/preset-env": "^7.5.5",
     "babel-loader": "^8.0.6",
     "parcel-bundler": "^1.12.3",
