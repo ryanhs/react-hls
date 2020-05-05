@@ -42,3 +42,7 @@ import ReactHLS from 'react-hls-player';
 - videoProps `Object`
 
     All video tag attributes supported. You can check [all attributes here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video)
+
+- ref `React Ref`
+
+    Pass in your own ref to interact with the video player directly

@@ -32,13 +32,13 @@ class ReactHls extends React.Component {
     let { url, autoplay, hlsConfig } = this.props;
     let hls = new Hls(hlsConfig);
 
-    hls.attachMedia(this.video.current);
+    hls.attachMedia(this.props.ref.current);
     hls.on(Hls.Events.MEDIA_ATTACHED, () => {
       hls.loadSource(url);
 
       hls.on(Hls.Events.MANIFEST_PARSED, () => {
         if (autoplay) {
-          this.video.current.play();
+          this.props.ref.current.play();
         }
       })
     })
@@ -68,7 +68,7 @@ class ReactHls extends React.Component {
 
     return (
       <div key={playerId} className="player-area">
-        <video ref={this.video}
+        <video ref={this.props.ref}
           className="hls-player"
           id={`react-hls-${playerId}`}
           controls={controls}
@@ -97,7 +97,8 @@ ReactHls.defaultProps = {
   hlsConfig : {},
   controls : true,
   width : 500,
-  height : 375
+  height : 375,
+  ref : React.createRef()
 }
 
 export default ReactHls;
