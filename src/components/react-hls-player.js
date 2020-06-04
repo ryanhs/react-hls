@@ -24,6 +24,12 @@ class ReactHls extends React.Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.url !== this.props.url) {
+      this._initPlayer();
+    }
+  }
+
   _initPlayer () {
     if (this.hls) {
       this.hls.destroy();
