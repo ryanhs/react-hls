@@ -75,7 +75,7 @@ class Index extends React.Component {
 
                 {
                     !destroy
-                        ? <Player playerRef={this.playerRef} url={hlsUrl} videoprops={{ loop : true }} />
+                        ? <Player playerRef={this.playerRef} url={hlsUrl} videoProps={{ loop : true }} />
                         : null
                 }
 

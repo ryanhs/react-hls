@@ -10,7 +10,7 @@ function ReactHlsPlayer({
     height = 375,
     playerRef = React.createRef(),
     poster,
-    videoprops,
+    videoProps,
     url
 }) {
     useEffect(() => {
@@ -72,7 +72,7 @@ function ReactHlsPlayer({
                 width={width}
                 height={height}
                 poster={poster}
-                {...videoprops}
+                {...videoProps}
             ></video>
         </div>
     );
@@ -86,7 +86,7 @@ ReactHlsPlayer.propTypes = {
     width: PropTypes.number,
     height: PropTypes.number,
     poster: PropTypes.string,
-    videoprops: PropTypes.object,
+    videoProps: PropTypes.object,
     playerRef: PropTypes.object
 };
 
