@@ -3,108 +3,110 @@ import PropTypes from 'prop-types';
 import Hls from 'hls.js';
 
 class ReactHls extends React.Component {
-  constructor (props) {
-    super(props);
+    constructor (props) {
+        super(props);
 
-    this.state = {
-      playerId : Date.now()
-    };
+        this.state = {
+            playerId : Date.now()
+        };
 
-    this.hls = null;
-    this.video = React.createRef();
-  }
-
-  componentDidMount () {
-    this._initPlayer();
-  }
-
-  componentWillUnmount () {
-    if (this.hls) {
-      this.hls.destroy();
-    }
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.url !== this.props.url) {
-      this._initPlayer();
-    }
-  }
-
-  _initPlayer () {
-    if (this.hls) {
-      this.hls.destroy();
+        this.hls = null;
+        this.video = React.createRef();
     }
 
-    let { url, autoplay, hlsConfig } = this.props;
-    let hls = new Hls(hlsConfig);
+    componentDidMount () {
+        this._initPlayer();
+    }
 
-    hls.attachMedia(this.props.ref.current);
-    hls.on(Hls.Events.MEDIA_ATTACHED, () => {
-      hls.loadSource(url);
-
-      hls.on(Hls.Events.MANIFEST_PARSED, () => {
-        if (autoplay) {
-          this.props.ref.current.play();
+    componentWillUnmount () {
+        if (this.hls) {
+            this.hls.destroy();
         }
-      })
-    })
+    }
 
-    hls.on(Hls.Events.ERROR, function (event, data) {
-      if (data.fatal) {
-        switch(data.type) {
-        case Hls.ErrorTypes.NETWORK_ERROR:
-          hls.startLoad();
-          break;
-        case Hls.ErrorTypes.MEDIA_ERROR:
-          hls.recoverMediaError();
-          break;
-        default:
-          this._initPlayer();
-          break;
+    componentDidUpdate(prevProps) {
+        if (prevProps.url !== this.props.url) {
+            this._initPlayer();
         }
-      }
-    });
+    }
 
-    this.hls = hls;
-  }
+    _initPlayer () {
+        if (this.hls) {
+            this.hls.destroy();
+        }
 
-  render () {
-    let { playerId } = this.state;
-    const { controls, width, height, poster, videoProps } = this.props;
+        let { url, autoplay, hlsConfig } = this.props;
+        let hls = new Hls(hlsConfig);
 
-    return (
-      <div key={playerId} className="player-area">
-        <video ref={this.props.ref}
-          className="hls-player"
-          id={`react-hls-${playerId}`}
-          controls={controls}
-          width={width}
-          height={height}
-          poster={poster}
-          {...videoProps}></video>
-      </div>
-    )
-  }
+        hls.attachMedia(this.props.ref.current);
+        hls.on(Hls.Events.MEDIA_ATTACHED, () => {
+            hls.loadSource(url);
+
+            hls.on(Hls.Events.MANIFEST_PARSED, () => {
+                if (autoplay) {
+                    this.props.ref.current.play();
+                }
+            });
+        });
+
+        hls.on(Hls.Events.ERROR, function (event, data) {
+            if (data.fatal) {
+                switch(data.type) {
+                    case Hls.ErrorTypes.NETWORK_ERROR:
+                        hls.startLoad();
+                        break;
+                    case Hls.ErrorTypes.MEDIA_ERROR:
+                        hls.recoverMediaError();
+                        break;
+                    default:
+                        this._initPlayer();
+                        break;
+                }
+            }
+        });
+
+        this.hls = hls;
+    }
+
+    render () {
+        let { playerId } = this.state;
+        const { controls, width, height, poster, videoProps } = this.props;
+
+        return (
+            <div key={playerId} className="player-area">
+                <video
+                    ref={this.props.ref}
+                    className="hls-player"
+                    id={`react-hls-${playerId}`}
+                    controls={controls}
+                    width={width}
+                    height={height}
+                    poster={poster}
+                    {...videoProps}
+                ><track></track></video>
+            </div>
+        );
+    }
 }
 
 ReactHls.propTypes = {
-  url : PropTypes.string.isRequired,
-  autoplay : PropTypes.bool,
-  hlsConfig : PropTypes.object, //https://github.com/video-dev/hls.js/blob/master/docs/API.md#fine-tuning
-  controls : PropTypes.bool,
-  width : PropTypes.number,
-  height : PropTypes.number,
-  poster : PropTypes.string,
-  videoProps : PropTypes.object
-}
+    url : PropTypes.string.isRequired,
+    autoplay : PropTypes.bool,
+    hlsConfig : PropTypes.object, // https://github.com/video-dev/hls.js/blob/master/docs/API.md#fine-tuning
+    controls : PropTypes.bool,
+    width : PropTypes.number,
+    height : PropTypes.number,
+    poster : PropTypes.string,
+    videoProps : PropTypes.object
+};
 
 ReactHls.defaultProps = {
-  autoplay : false,
-  hlsConfig : {},
-  controls : true,
-  width : 500,
-  height : 375,
-  ref : React.createRef()
-}
+    autoplay : false,
+    hlsConfig : {},
+    controls : true,
+    width : 500,
+    height : 375,
+    ref : React.createRef()
+};
 
 export default ReactHls;
