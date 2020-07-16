@@ -12,15 +12,11 @@ class Index extends React.Component {
             destroy : false
         };
 
-        this._handleInputBlur = this._handleInputBlur.bind(this);
+        this.playerRef = React.createRef();
+
         this._handleEnter = this._handleEnter.bind(this);
         this._handleDestroyClick = this._handleDestroyClick.bind(this);
-    }
-
-    _handleInputBlur (e) {
-        this.setState({
-            hlsUrl : e.target.value
-        });
+        this._handleToggleControls = this._handleToggleControls.bind(this);
     }
 
     _handleEnter (e) {
@@ -35,6 +31,14 @@ class Index extends React.Component {
         this.setState({
             destroy : true
         });
+    }
+
+    _handleToggleControls () {
+        if (this.playerRef.current.hasAttribute('controls')) {
+            this.playerRef.current.removeAttribute('controls');
+        } else {
+            this.playerRef.current.setAttribute('controls', true);
+        }
     }
 
     render () {
@@ -58,7 +62,6 @@ class Index extends React.Component {
                         id="url-input"
                         type="text"
                         defaultValue={hlsUrl}
-                        onBlur={this._handleInputBlur}
                         onKeyUp={this._handleEnter}
                         style={{
                             width: '100%',
@@ -72,7 +75,7 @@ class Index extends React.Component {
 
                 {
                     !destroy
-                        ? <Player url={hlsUrl} videoProps={{ loop : true }} />
+                        ? <Player playerRef={this.playerRef} url={hlsUrl} videoprops={{ loop : true }} />
                         : null
                 }
 
@@ -85,6 +88,15 @@ class Index extends React.Component {
                     onClick={this._handleDestroyClick}
                 >
                     Destroy Video
+                </button>
+
+                <button
+                    style={{
+                        padding: '5px 10px'
+                    }}
+                    onClick={this._handleToggleControls}
+                >
+                    Toggle Controls (via custom ref)
                 </button>
             </div>
         );
