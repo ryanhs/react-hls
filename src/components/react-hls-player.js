@@ -100,7 +100,9 @@ ReactHls.propTypes = {
 
 ReactHls.defaultProps = {
   autoplay : false,
-  hlsConfig : {},
+  hlsConfig : {
+    enableWorker: false
+  },
   controls : true,
   width : 500,
   height : 375,
