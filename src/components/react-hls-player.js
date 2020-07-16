@@ -4,7 +4,9 @@ import Hls from 'hls.js';
 
 function ReactHlsPlayer({
     autoplay = false,
-    hlsConfig = {},
+    hlsConfig = {
+        enableWorker: false
+    },
     controls = true,
     width = 500,
     height = 375,
