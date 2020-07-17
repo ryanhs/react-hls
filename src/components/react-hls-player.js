@@ -4,9 +4,7 @@ import Hls from 'hls.js';
 
 function ReactHlsPlayer({
     autoplay = false,
-    hlsConfig = {
-        enableWorker: false
-    },
+    hlsConfig = {},
     controls = true,
     width = 500,
     height = 375,
@@ -23,7 +21,10 @@ function ReactHlsPlayer({
                 hls.destroy();
             }
 
-            const newHls = new Hls(hlsConfig);
+            const newHls = new Hls({
+                enableWorker: false,
+                ...hlsConfig
+            });
 
             newHls.attachMedia(playerRef.current);
 
