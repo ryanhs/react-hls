@@ -1,4 +1,10 @@
-# React HLS Player
+# React HLS Player V1
+
+## Pre-Intro
+
+This is the official release of React HLS Player V1. I originally forked this project so I could fix some underlying issues that I was running in to and the original project was no longer being maintained. Since then, this project has seen a gradual increase of usage, and I've decided on maintaining and improving it for the long term. This V1 release is a rewrite of the original, includes Typescript definitions to take advantage of VSCode's intellisense, and has completely migrated to Webpack from Parcel.
+
+This project will continue to be a work in progress, and I will always welcome PRs, issues, and recommendations. I'll continue to look for better ways of handling things, as well as look for ways to improve and add on to this module.
 
 ## Introduction
 
