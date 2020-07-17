@@ -5,7 +5,7 @@
   "main": "dist/react-hls-player.js",
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js",
+    "build": "set NODE_ENV=production&& webpack --config webpack.prod.js",
     "release": "yarn build && yarn publish",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "install-peers"
@@ -40,6 +40,7 @@
     "@babel/preset-react": "^7.10.4",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.0.6",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "eslint": "^7.4.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.20.3",
