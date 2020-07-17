@@ -35,3 +35,7 @@ hlsConfig `Object` | `hls.js` config , you can see all config [here](https://git
 videoProps `Object` | All video tag attributes supported. You can check [all attributes here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video)
 poster `String` | Poster image for video player [as described here](https://www.w3schools.com/tags/att_video_poster.asp)
 playerRef `React Ref` | Pass in your own ref to interact with the video player directly. This will override the default ref.
+
+### Additional Notes
+
+By default, the HLS config will have `enableWorker` set to `false`. There have been issues with the HLS.js library that breaks some React apps, so I've disabled it to prevent people from running in to this issue. If you want to enable it and see if it works with your React app, you can simply pass in `enableWorker: true` to the `hlsConfig` prop object. [See this issue for more information](https://github.com/video-dev/hls.js/issues/2064)
