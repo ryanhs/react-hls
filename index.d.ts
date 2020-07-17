@@ -11,7 +11,6 @@ export interface ReactHlsPlayerProps {
     poster?: string;
     playerRef?: React.Ref<any>;
     style?: React.CSSProperties;
-    className?: string;
 }
 
 declare const ReactHlsPlayer: React.SFC<ReactHlsPlayerProps>
