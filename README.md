@@ -22,7 +22,9 @@ It uses [hls.js](https://github.com/video-dev/hls.js) to play your hls live stre
     width={500}
     height={375}
 />
+```
 
+```javascript
 // Responsive
 <ReactHlsPlayer
     url='https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8'
@@ -36,6 +38,8 @@ It uses [hls.js](https://github.com/video-dev/hls.js) to play your hls live stre
 
 Prop | Description
 ------------ | -------------
+style `Object` | React CSS properties
+className `String` | Custom classes
 url `String`, `required` | The hls url that you want to play
 autoplay `Boolean` | Autoplay when component is ready. Defaults to `false`
 controls `Boolean` | Whether or not to show the playback controls. Defaults to `false`
