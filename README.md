@@ -14,7 +14,7 @@ It uses [hls.js](https://github.com/video-dev/hls.js) to play your hls live stre
 ## Examples
 
 ```javascript
-// General Example
+// General Usage
 <ReactHlsPlayer
     url='https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8'
     autoplay={false}
