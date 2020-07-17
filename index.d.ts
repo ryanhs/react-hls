@@ -10,6 +10,8 @@ export interface ReactHlsPlayerProps {
     videoProps?: object;
     poster?: string;
     playerRef?: React.Ref<any>;
+    style?: React.CSSProperties;
+    className?: string;
 }
 
 declare const ReactHlsPlayer: React.SFC<ReactHlsPlayerProps>

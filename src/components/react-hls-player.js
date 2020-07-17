@@ -9,6 +9,8 @@ function ReactHlsPlayer({
     width = 500,
     height = 375,
     playerRef = React.createRef(),
+    style = {},
+    className,
     poster,
     videoProps,
     url
@@ -68,6 +70,8 @@ function ReactHlsPlayer({
 
     return (
         <video
+            className={className}
+            style={style}
             ref={playerRef}
             controls={controls}
             width={width}
@@ -87,7 +91,9 @@ ReactHlsPlayer.propTypes = {
     height: PropTypes.number,
     poster: PropTypes.string,
     videoProps: PropTypes.object,
-    playerRef: PropTypes.object
+    playerRef: PropTypes.object,
+    style: PropTypes.object,
+    className: PropTypes.string
 };
 
 export default ReactHlsPlayer;
