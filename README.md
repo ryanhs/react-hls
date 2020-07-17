@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-# React HLS Player
-
-## Introduction
-
-`react-hls-player` is a simple hls/rtmp live stream player.
-It uses [hls.js](https://github.com/video-dev/hls.js) to play your hls live stream if your browser supports `html 5 video` and `MediaSource Extension`.
-
-## Example
-
-```javascript
-=======
 # React HLS Player V1
 
 ## Pre-Intro
@@ -27,7 +15,6 @@ It uses [hls.js](https://github.com/video-dev/hls.js) to play your hls live stre
 
 ```javascript
 // General Example
->>>>>>> v1
 <ReactHlsPlayer
     url='https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8'
     autoplay={false}
