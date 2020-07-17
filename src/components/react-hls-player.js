@@ -67,17 +67,15 @@ function ReactHlsPlayer({
     }, [autoplay, hlsConfig, playerRef, url]);
 
     return (
-        <div className="player-area">
-            <video
-                ref={playerRef}
-                className="hls-player"
-                controls={controls}
-                width={width}
-                height={height}
-                poster={poster}
-                {...videoProps}
-            ></video>
-        </div>
+        <video
+            ref={playerRef}
+            className="hls-player"
+            controls={controls}
+            width={width}
+            height={height}
+            poster={poster}
+            {...videoProps}
+        ></video>
     );
 }
 
