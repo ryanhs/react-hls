@@ -1,14 +1,12 @@
 import React from 'react';
+import Hls from 'hls.js';
 
-export interface ReactHlsPlayerProps {
+export interface ReactHlsPlayerProps extends HTMLVideoElement {
     url: string;
     autoplay?: boolean;
     controls?: boolean;
-    hlsConfig?: object;
-    height?: number;
-    width?: number;
-    videoProps?: object;
-    poster?: string;
+    hlsConfig?: Partial<Hls.Config>;
+    videoProps?: Partial<HTMLVideoElement>;
     playerRef?: React.Ref<any>;
     style?: React.CSSProperties;
     className?: string;

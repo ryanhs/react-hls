@@ -1,19 +1,18 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import Hls from 'hls.js';
 
 function ReactHlsPlayer({
     autoplay = false,
-    hlsConfig = {},
     controls = true,
-    width = 500,
-    height = 375,
+    hlsConfig = {},
+    videoProps = {},
     playerRef = React.createRef(),
     style = {},
+    width = '100%',
+    height = 'auto',
     className,
-    poster,
-    videoProps,
-    url
+    url,
+    ...props
 }) {
     useEffect(() => {
         let hls = null;
@@ -76,24 +75,10 @@ function ReactHlsPlayer({
             controls={controls}
             width={width}
             height={height}
-            poster={poster}
             {...videoProps}
+            {...props}
         ></video>
     );
 }
-
-ReactHlsPlayer.propTypes = {
-    url: PropTypes.string.isRequired,
-    autoplay: PropTypes.bool,
-    hlsConfig: PropTypes.object, // https://github.com/video-dev/hls.js/blob/master/docs/API.md#fine-tuning
-    controls: PropTypes.bool,
-    width: PropTypes.number,
-    height: PropTypes.number,
-    poster: PropTypes.string,
-    videoProps: PropTypes.object,
-    playerRef: PropTypes.object,
-    style: PropTypes.object,
-    className: PropTypes.string
-};
 
 export default ReactHlsPlayer;
