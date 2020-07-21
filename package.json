@@ -27,8 +27,7 @@
   },
   "homepage": "https://github.com/devcshort/react-hls#README",
   "dependencies": {
-    "hls.js": "^0.12.4",
-    "prop-types": "^15.7.2"
+    "hls.js": "^0.12.4"
   },
   "peerDependencies": {
     "react": "^16.13.1",
@@ -40,7 +39,6 @@
     "@babel/preset-react": "^7.10.4",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.0.6",
-    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "eslint": "^7.4.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.20.3",
