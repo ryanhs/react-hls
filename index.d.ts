@@ -1,7 +1,7 @@
 import React, { DetailedHTMLProps, VideoHTMLAttributes } from 'react';
 import Hls from 'hls.js';
 
-export interface ReactHlsPlayerProps extends React.Component<DetailedHTMLProps<VideoHTMLAttributes<HTMLVideoElement>, HTMLVideoElement>>  {
+export interface ReactHlsPlayerProps extends DetailedHTMLProps<VideoHTMLAttributes<HTMLVideoElement>, HTMLVideoElement>  {
     url: string;
     autoplay?: boolean;
     controls?: boolean;
