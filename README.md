@@ -36,6 +36,8 @@ It uses [hls.js](https://github.com/video-dev/hls.js) to play your hls live stre
 ```
 ## Props
 
+All [video properties](https://www.w3schools.com/tags/att_video_poster.asp) are supported and passed down to the underlying video component
+
 Prop | Description
 ------------ | -------------
 style `Object` | React CSS properties
@@ -43,11 +45,9 @@ className `String` | Custom classes
 url `String`, `required` | The hls url that you want to play
 autoplay `Boolean` | Autoplay when component is ready. Defaults to `false`
 controls `Boolean` | Whether or not to show the playback controls. Defaults to `false`
-width `Number` | Video width
-height `Number` | Video height
-hlsConfig `Object` | `hls.js` config , you can see all config [here](https://github.com/video-dev/hls.js/blob/master/docs/API.md#fine-tuning)
-videoProps `Object` | All video tag attributes supported. You can check [all attributes here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video)
-poster `String` | Poster image for video player [as described here](https://www.w3schools.com/tags/att_video_poster.asp)
+width `Number` | Video width. Defaults to `100%`
+height `Number` | Video height. Defaults to `auto`
+hlsConfig `Object` | `hls.js` config, you can see all config [here](https://github.com/video-dev/hls.js/blob/master/docs/API.md#fine-tuning)
 playerRef `React Ref` | Pass in your own ref to interact with the video player directly. This will override the default ref.
 
 ### Additional Notes

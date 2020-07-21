@@ -3,7 +3,7 @@ import Hls from 'hls.js';
 
 function ReactHlsPlayer({
     autoplay = false,
-    controls = true,
+    controls = false,
     hlsConfig = {},
     videoProps = {},
     playerRef = React.createRef(),
