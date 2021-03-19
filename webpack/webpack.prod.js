@@ -8,10 +8,10 @@ module.exports = merge(config, {
   entry: './src/index.tsx',
   devtool: 'source-map',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '..', 'dist'),
     filename: 'react-hls-player.js',
     libraryTarget: 'umd',
-    library: 'reactHlsPlayer',
+    library: 'react-hls-player',
     globalObject: 'this',
     umdNamedDefine: true,
   },
@@ -21,6 +21,5 @@ module.exports = merge(config, {
   },
   externals: {
     react: 'commonjs react',
-    'react-dom': 'commonjs react-dom',
   },
 });
