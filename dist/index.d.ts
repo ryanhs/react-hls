@@ -1,6 +1,6 @@
 import React, { RefObject } from 'react';
 import { Config } from 'hls.js';
-interface HlsPlayerProps extends React.VideoHTMLAttributes<HTMLVideoElement> {
+export interface HlsPlayerProps extends React.VideoHTMLAttributes<HTMLVideoElement> {
     hlsConfig?: Config;
     playerRef: RefObject<HTMLVideoElement>;
     src: string;
