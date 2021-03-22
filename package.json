@@ -1,13 +1,13 @@
 {
   "name": "react-hls-player",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "A simple and easy to use react component for playing an hls live stream",
   "main": "./dist/react-hls-player.js",
   "types": "./dist",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --config webpack/webpack.dev.js",
-    "build": "webpack --config webpack/webpack.prod.js",
+    "build": "tsc",
     "prepublishOnly": "npm run build",
     "prepare": "install-peers"
   },
