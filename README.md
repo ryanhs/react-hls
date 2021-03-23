@@ -12,12 +12,13 @@ It uses [hls.js](https://github.com/video-dev/hls.js) to play your hls live stre
 
 ## Examples
 
+### Using the ReactHlsPlayer component
+
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactHlsPlayer from 'react-hls-player';
 
-// General Usage
 ReactDOM.render(
   <ReactHlsPlayer
     src="https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8"
@@ -28,6 +29,102 @@ ReactDOM.render(
   />,
   document.getElementById('app')
 );
+```
+
+### Using hlsConfig (advanced use case)
+
+All available config properties can be found on the [Fine Tuning](https://github.com/video-dev/hls.js/blob/master/docs/API.md#fine-tuning) section of the Hls.js API.md
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import ReactHlsPlayer from 'react-hls-player';
+
+ReactDOM.render(
+  <ReactHlsPlayer
+    src="https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8"
+    hlsConfig={{
+      maxLoadingDelay: 4,
+      minAutoBitrate: 0,
+      lowLatencyMode: true,
+    }}
+  />,
+  document.getElementById('app')
+);
+```
+
+### Using playerRef
+
+The `playerRef` returns a ref to the underlying video component, and as such will give you access to all video component properties and methods.
+
+```javascript
+import React from 'react';
+import ReactHlsPlayer from 'react-hls-player';
+
+function MyCustomComponent() {
+  const playerRef = React.useRef();
+
+  function playVideo() {
+    playerRef.current.play();
+  }
+
+  function pauseVideo() {
+    playerRef.current.pause();
+  }
+
+  function toggleControls() {
+    playerRef.current.controls = !playerRef.current.controls;
+  }
+
+  return (
+    <ReactHlsPlayer
+      playerRef={playerRef}
+      src="https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8"
+    />
+  );
+}
+
+ReactDOM.render(<MyCustomComponent />, document.getElementById('app'));
+```
+
+You can also listen to events of the video
+
+```javascript
+import React from 'react';
+import ReactHlsPlayer from 'react-hls-player';
+
+function MyCustomComponent() {
+  const playerRef = React.useRef();
+
+  React.useEffect(() => {
+    function fireOnVideoStart() {
+      // Do some stuff when the video starts/resumes playing
+    }
+
+    playerRef.current.addEventListener('play', fireOnVideoStart);
+
+    return playerRef.current.removeEventListener('play', fireOnVideoStart);
+  }, []);
+
+  React.useEffect(() => {
+    function fireOnVideoEnd() {
+      // Do some stuff when the video ends
+    }
+
+    playerRef.current.addEventListener('ended', fireOnVideoEnd);
+
+    return playerRef.current.removeEventListener('ended', fireOnVideoEnd);
+  }, []);
+
+  return (
+    <ReactHlsPlayer
+      playerRef={playerRef}
+      src="https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8"
+    />
+  );
+}
+
+ReactDOM.render(<MyCustomComponent />, document.getElementById('app'));
 ```
 
 ## Props
