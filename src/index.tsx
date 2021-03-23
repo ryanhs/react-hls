@@ -37,7 +37,13 @@ function ReactHlsPlayer({
 
         newHls.on(Hls.Events.MANIFEST_PARSED, () => {
           if (autoPlay) {
-            playerRef?.current?.play();
+            playerRef?.current
+              ?.play()
+              .catch(() =>
+                console.log(
+                  'Unable to autoplay prior to user interaction with the dom.'
+                )
+              );
           }
         });
       });
@@ -61,7 +67,10 @@ function ReactHlsPlayer({
       hls = newHls;
     }
 
-    _initPlayer();
+    // Check for Media Source support
+    if (Hls.isSupported()) {
+      _initPlayer();
+    }
 
     return () => {
       if (hls != null) {
@@ -70,7 +79,11 @@ function ReactHlsPlayer({
     };
   }, [autoPlay, hlsConfig, playerRef, src]);
 
-  return <video ref={playerRef} {...props} />;
+  // If Media Source is supported, use HLS.js to play video
+  if (Hls.isSupported()) return <video ref={playerRef} {...props} />;
+
+  // Fallback to using a regular video player if HLS is supported by default in the user's browser
+  return <video ref={playerRef} src={src} autoPlay={autoPlay} {...props} />;
 }
 
 export default ReactHlsPlayer;

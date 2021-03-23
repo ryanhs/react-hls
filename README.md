@@ -5,12 +5,6 @@
 ![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/react-hls-player)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/react-hls-player)
 
-## Overview
-
-V2 is now out and includes better TypeScript support. I had to make a large jump from the previous V1 as this new version included a couple small breaking changes, primarily to the way props are named. One big difference, is that the component now accepts all video element props in the formatting you would expect them with (previously autoPlay was passed as autoplay, and various other props weren't being handled properly). We're also using `src` instead of `url` to provide the source to the underlying video player.
-
-As always, PRs, issues and recommendations are always welcome.
-
 ## Introduction
 
 `react-hls-player` is a simple HLS live stream player.

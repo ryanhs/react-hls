@@ -65,7 +65,7 @@ function App() {
           loop={true}
           width="100%"
           height="auto"
-          autoPlay={true}
+          autoPlay
           playerRef={playerRef}
           src={hlsUrl}
         />
